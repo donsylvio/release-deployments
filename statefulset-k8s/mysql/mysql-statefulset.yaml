@@ -5,7 +5,7 @@ metadata:
   namespace: database
 spec:
   serviceName: mysql
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: mysql
@@ -22,8 +22,9 @@ spec:
                   - key: kubernetes.io/hostname
                     operator: In
                     values:
-                      - k8s-worker-node-1
-                      - k8s-worker-node-2
+                      - k8slab-worker1
+                      - k8slab-worker2
+                      - k8slab-worker3
         podAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
